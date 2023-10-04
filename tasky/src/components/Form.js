@@ -45,7 +45,7 @@ const AddTaskForm = (props) => {
         />
       </div>
       <div>
-        <Button 
+        <Button
           type="submit"
           variant="contained"
           color="primary"
