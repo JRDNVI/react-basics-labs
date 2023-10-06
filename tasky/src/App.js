@@ -12,14 +12,15 @@ import Form from './components/Form'
 function App() {
   const [taskState, setTaskState] = useState({
     tasks: [
-      { id: 1, title: "Dishes", description: "Empty dishwasher", deadline: "Today", markDone: false, done: false },
-      { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow", markDone: false, done: false },
-      { id: 3, title: "Tidy up", deadline: "Today", markDone: false, done: false }
+      { id: 1, title: "Dishes", priority: "Low", description: "Empty dishwasher", deadline: "Today", markDone: false, done: false },
+      { id: 2, title: "Laundry", priority: "Low", description: "Fold clothes and put away", deadline: "Tomorrow", markDone: false, done: false },
+      { id: 3, title: "Tidy up", priority: "Low", deadline: "Today", markDone: false, done: false }
     ]
   });
 
   const [formState, setFormState] = useState({
     title: "",
+    priority: "",
     description: "",
     deadline: ""
   });
@@ -46,6 +47,9 @@ function App() {
         break;
       case "description":
         form.description = event.target.value;
+        break;
+      case "priority":
+        form.priority = event.target.value;
         break;
       case "deadline":
         form.deadline = event.target.value;
@@ -102,6 +106,7 @@ function App() {
               title={task.title}
               description={task.description}
               deadline={task.deadline}
+              priority={task.priority}
               done={task.done}
               key={task.id}
               markDone={() => doneHandler(index)}
